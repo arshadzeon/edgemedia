@@ -142,7 +142,7 @@ export default function Home() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Explore Our Services
+            Explore My Services
           </motion.a>
         </div>
       </section>
