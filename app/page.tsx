@@ -1,20 +1,8 @@
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import Services from './services/page';
 import Work from './work/page';
 import Contact from './contact/page';
-
-const navVariants = {
-  hidden: { y: -100, opacity: 0 },
-  visible: { 
-    y: 0, 
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut"
-    }
-  }
-};
+import MobileResponsiveNav from './components/MobileResponsiveNav';
 
 const heroTextVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -32,52 +20,12 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-black via-black to-gray-900">
       {/* Navigation */}
-      <motion.nav 
-        className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800"
-        initial="hidden"
-        animate="visible"
-        variants={navVariants}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <motion.div 
-              className="text-2xl font-bold"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
-            >
-              <span className="bg-gradient-to-r from-white via-purple-400 to-pink-500 bg-clip-text text-transparent">
-                Edge Media
-              </span>
-            </motion.div>
-            <div className="flex gap-8">
-              {['services', 'work', 'contact'].map((item) => (
-                <motion.a
-                  key={item}
-                  href={`#${item}`}
-                  className="text-gray-300 hover:text-white transition-colors uppercase"
-                  whileHover={{ y: -2 }}
-                  whileTap={{ y: 0 }}
-                >
-                  {item}
-                </motion.a>
-              ))}
-            </div>
-            <motion.a 
-              href="#contact"
-              className="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full text-sm font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              LET'S GROW
-            </motion.a>
-          </div>
-        </div>
-      </motion.nav>
+      <MobileResponsiveNav />
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-4 relative pt-20">
+      <section className="min-h-screen flex items-center justify-center px-4 relative pt-16 sm:pt-20">
         <motion.div 
-          className="absolute top-1/2 right-8 transform -translate-y-1/2"
+          className="absolute top-1/2 right-4 sm:right-8 transform -translate-y-1/2 hidden sm:block"
           animate={{ 
             rotate: 360,
             transition: {
@@ -87,16 +35,16 @@ export default function Home() {
             }
           }}
         >
-          <div className="rounded-full p-8 border border-gray-800">
-            <div className="w-24 h-24 flex items-center justify-center">
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">em</span>
+          <div className="rounded-full p-4 sm:p-8 border border-gray-800">
+            <div className="w-16 h-16 sm:w-24 sm:h-24 flex items-center justify-center">
+              <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">em</span>
             </div>
           </div>
         </motion.div>
         
-        <div className="max-w-5xl mx-auto text-center py-32">
+        <div className="max-w-5xl mx-auto text-center py-16 sm:py-32">
           <motion.h1 
-            className="text-5xl md:text-7xl font-serif mb-12 leading-tight"
+            className="text-3xl sm:text-5xl md:text-7xl font-serif mb-8 sm:mb-12 leading-tight px-2"
             initial="hidden"
             animate="visible"
             variants={heroTextVariants}
@@ -124,7 +72,7 @@ export default function Home() {
           </motion.h1>
           
           <motion.p 
-            className="text-xl text-gray-400 max-w-2xl mx-auto mb-16"
+            className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-12 sm:mb-16 px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -135,7 +83,7 @@ export default function Home() {
 
           <motion.a 
             href="#services"
-            className="inline-block px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full text-lg font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all"
+            className="inline-block px-6 sm:px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full text-base sm:text-lg font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
