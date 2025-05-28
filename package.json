@@ -1,4 +1,11 @@
 {
+  "scripts": {
+    "dev": "cd edgemedia && npm run dev",
+    "build": "cd edgemedia && npm run build",
+    "start": "cd edgemedia && npm run start",
+    "lint": "cd edgemedia && npm run lint",
+    "vercel-build": "cd edgemedia && npm run build"
+  },
   "dependencies": {
     "@react-three/drei": "^10.0.5",
     "@react-three/fiber": "^9.1.0",
